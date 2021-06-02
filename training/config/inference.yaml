@@ -65,10 +65,15 @@ common_data_io: &defaults
     compression_type: '' # no compression
     suffix: 'tfrecord'
     tfrecords_test_dirs:
-      - "kitti/tfrecords/test/T1"
-      - 'kitti/tfrecords/test/T2a'
-      - "kitti/tfrecords/test/T2b"
-      - "kitti/tfrecords/test/T3"
+      #- '/mnt/sgvrnas/kitti/tfrecords_16/test/T1/'
+      #- '/mnt/data/kitti/tfrecords_64/test/T1/'
+      - '/mnt/data/kitti/tfrecords_64/test/T2a/'
+      #- '/mnt/data/kitti/tfrecords_64/test/T2b/'
+      #- '/mnt/sgvrnas/kitti/tfrecords_16/test/T2b/'
+      #- "kitti/tfrecords/test/T1"
+      #- 'kitti/tfrecords/test/T2a'
+      #- "kitti/tfrecords/test/T2b"
+      #- "kitti/tfrecords/test/T3"
 
 
 rggnet:
@@ -110,3 +115,13 @@ rggnet_plus:
     - 'rggnet/Placeholders/x_cam:0'
     outputs:
     - 'rggnet/Forward/Regressor/y_hat_se3param:0'
+
+rggnet_attention:
+  <<: *defaults
+  pb_fp: '/mnt/sgvrnas/kitti/prod/rggnet_attention/20210507/20210507.pb'
+  tensors:
+    inputs:
+    - 'rggnet_attention/Placeholders/x_dm:0'
+    - 'rggnet_attention/Placeholders/x_cam:0'
+    outputs:
+    - 'rggnet_attention/Forward/Regressor/y_hat_se3param:0'

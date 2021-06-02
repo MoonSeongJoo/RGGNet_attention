@@ -16,8 +16,8 @@
 training_data:
   number: 24000
   reduce_lidar_line_to: 16
-  raw_data_dir: '/root/kitti/raw/train'             # Replace with your own path
-  output_data_dir: '/root/kitti/tfrecords_16/train' # Replace with your own path
+  raw_data_dir: '/mnt/data/kitti/raw/train'             # Replace with your own path
+  output_data_dir: '/mnt/data/kitti/tfrecords_16/train' # Replace with your own path
   vae_resized:
     H: 160
     W: 640
@@ -29,8 +29,8 @@ training_data:
 training_data_trans_only:
   number: 4000
   reduce_lidar_line_to: 16
-  raw_data_dir: '/root/kitti/raw/train'
-  output_data_dir: '/root/kitti/tfrecords_16/train/trans'
+  raw_data_dir: '/mnt/data/kitti/raw/train'
+  output_data_dir: '/mnt/data/kitti/tfrecords_16/train/trans'
   vae_resized:
     H: 160
     W: 640
@@ -41,8 +41,8 @@ training_data_trans_only:
 training_data_rot_only:
   number: 4000
   reduce_lidar_line_to: 16
-  raw_data_dir: '/root/kitti/raw/train'
-  output_data_dir: '/root/kitti/tfrecords_16/train/rot'
+  raw_data_dir: '/mnt/data/kitti/raw/train'
+  output_data_dir: '/mnt/data/kitti/tfrecords_16/train/rot'
   vae_resized:
     H: 160
     W: 640
@@ -52,21 +52,21 @@ training_data_rot_only:
 
 
 # (10/03/2011 0027)
-train_1003:
-  force_shape: # due to a different drive
-    H: 375
-    W: 1242
-  number: 2000
-  reduce_lidar_line_to: 16
-  output_format: 'tfrecords'
-  raw_data_dir: '/root/kitti/raw/T4'
-  output_data_dir: '/root/kitti/tfrecords_16/train/1003'
-  vae_resized:
-    H: 160
-    W: 640
-  off_range:
-    rot: 2         # deg
-    trans: 0.3     # m
+#train_1003:
+#  force_shape: # due to a different drive
+#    H: 375
+#    W: 1242
+#  number: 2000
+#  reduce_lidar_line_to: 16
+#  output_format: 'tfrecords'
+#  raw_data_dir: '/root/kitti/raw/T4'
+#  output_data_dir: '/root/kitti/tfrecords_16/train/1003'
+#  vae_resized:
+#    H: 160
+#    W: 640
+#  off_range:
+#    rot: 2         # deg
+#    trans: 0.3     # m
 
 
 # (09/26/2011 0005/0007)
@@ -74,8 +74,8 @@ T1:
   number: 2000
   reduce_lidar_line_to: 16
   output_format: 'tfrecords'
-  raw_data_dir: '/root/kitti/raw/test'
-  output_data_dir: '/root/kitti/tfrecords_16/test/T1'
+  raw_data_dir: '/mnt/data/kitti/raw/test'
+  output_data_dir: '/mnt/data/kitti/tfrecords_16/test/T1'
   vae_resized:
     H: 160
     W: 640
@@ -88,8 +88,8 @@ T2a:
   number: 2000
   reduce_lidar_line_to: 16
   output_format: 'tfrecords'
-  raw_data_dir: '/root/kitti/raw/train'
-  output_data_dir: '/root/kitti/tfrecords_16/test/T2a'
+  raw_data_dir: '/mnt/data/kitti/raw/train'
+  output_data_dir: '/mnt/data/kitti/tfrecords_16/test/T2a'
   vae_resized:
     H: 160
     W: 640
@@ -102,8 +102,8 @@ T2b:
   number: 2000
   reduce_lidar_line_to: 16
   output_format: 'tfrecords'
-  raw_data_dir: '/root/kitti/raw/test'
-  output_data_dir: '/root/kitti/tfrecords_16/test/T2b'
+  raw_data_dir: '/mnt/data/kitti/raw/test'
+  output_data_dir: '/mnt/data/kitti/tfrecords_16/test/T2b'
   vae_resized:
     H: 160
     W: 640
@@ -113,18 +113,18 @@ T2b:
 
 # (09/26/2011 0005/0007)
 #| T3 | 2000 (03_10, 0027) |  52 GB|+/- 2 deg| +/- 0.3 m|
-T3:
-  force_shape: # due to a different drive
-    H: 375
-    W: 1242
-  number: 2000
-  reduce_lidar_line_to: 16
-  output_format: 'tfrecords'
-  raw_data_dir: '/root/kitti/raw/T4'
-  output_data_dir: '/root/kitti/tfrecords_16/test/T3'
-  vae_resized:
-    H: 160
-    W: 640
-  off_range:
-    rot: 2        # deg
-    trans: 0.3     # m
+#T3:
+#  force_shape: # due to a different drive
+#    H: 375
+#    W: 1242
+##  number: 2000
+#  reduce_lidar_line_to: 16
+#  output_format: 'tfrecords'
+#  raw_data_dir: '/root/kitti/raw/T4'
+#  output_data_dir: '/root/kitti/tfrecords_16/test/T3'
+#  vae_resized:
+#    H: 160
+#    W: 640
+#  off_range:
+#    rot: 2        # deg
+#    trans: 0.3     # m

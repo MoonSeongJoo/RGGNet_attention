@@ -28,6 +28,12 @@ run-fs-mode-gpu-rggnet-plus:
 	--model_name "rggnet_plus" \
 	--profile_export "profile"
 
+run-fs-mode-gpu-rggnet-attention:
+	export PYTHONPATH='.' &&  python main.py run \
+	--config_fp config.yaml \
+	--model_name "rggnet_attention" \
+	--profile_export "profile"	
+
 run-fs-mode-gpu-all:
 	export PYTHONPATH='.' && python main.py run_all \
 	--config_fp config.yaml

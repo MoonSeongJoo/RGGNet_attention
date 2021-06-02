@@ -11,8 +11,8 @@ env:
       H: 375
       W: 1242
     reduce_lidar_line_to: 16
-    raw_data_dir: '/root/kitti/raw/test' # Replace this 0070 with whatever drive you would like to test
-    res_data_dir: '/root/kitti/server/results' # Make sure you change this to your fav localtion
+    raw_data_dir: '/mnt/sgvrnas/kitti/raw/test' # Replace this 0070 with whatever drive you would like to test
+    res_data_dir: '/mnt/sgvrnas/kitti/server/results' # Make sure you change this to your fav localtion
     number: False
     off_range:
       rot: 10        # deg
@@ -25,7 +25,7 @@ env:
 
 app:
   rggnet:
-    pb_fp: '/root/rggnet/training/prod/rggnet/best.pb'
+    pb_fp: '/mnt/sgvrnas/kitti/prod/rggnet/20210220.pb'
     tensors:
       inputs:
         - 'rggnet/Placeholders/x_dm:0'
@@ -50,3 +50,12 @@ app:
         - 'rggnet/Placeholders/x_cam:0'
       outputs:
         - 'rggnet/Forward/Regressor/y_hat_se3param:0'
+  
+  rggnet_attention:
+    pb_fp: '/mnt/sgvrnas/kitti/prod/rggnet_attention/20210302/20210302.pb'
+    tensors:
+      inputs:
+        - 'rggnet_attention/Placeholders/x_dm:0'
+        - 'rggnet_attention/Placeholders/x_cam:0'
+      outputs:
+        - 'rggnet_attention/Forward/Regressor/y_hat_se3param:0'

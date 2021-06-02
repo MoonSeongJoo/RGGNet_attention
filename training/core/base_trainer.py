@@ -200,7 +200,7 @@ class BaseTrainer(object):
         # Restore parameters from pre-trained graph
         self.logger.info("restore_graph_fns: {}".format(restore_graph_fns))
         # Saving GPU memory
-        with tf.device("/cpu:0"):
+        with tf.device("/gpu:0"):
             if len(restore_graph_fns) > 0:
                 self.logger.info('Assign params to target tensor ...')
                 for _restore_graph_fn in restore_graph_fns:

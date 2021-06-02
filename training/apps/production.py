@@ -5,6 +5,7 @@ import tensorflow as tf
 from ..utils.inference import create_inference_graph
 from ..utils.freeze import freeze_graph_from_file
 from ..utils.tf_rggnet import rggnet_forward
+#from ..utils.tf_rggnet_attention import rggnet_forward
 import fire
 
 

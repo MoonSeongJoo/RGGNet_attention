@@ -1,8 +1,10 @@
 import os
 import tensorflow as tf
 import tensorflow_probability as tfp
+
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 tf.logging.set_verbosity(tf.logging.ERROR)
+#tf.enable_eager_execution()
 
 ###################################################################################################
 #                          Variational Auto-Encoder                                               #
@@ -88,6 +90,7 @@ def compute_ELBO(x, y, mu, sigma):
     neg_loglikelihood = -tf.reduce_mean(marginal_likelihood)
     KL_divergence = tf.reduce_mean(KL_divergence)
     ELBO = -neg_loglikelihood - KL_divergence
+
     # tf.summary.scalar("ELBO", ELBO)
     tf.summary.scalar("KL_divergence", KL_divergence)
     tf.summary.scalar("neg_loglikelihood", neg_loglikelihood)

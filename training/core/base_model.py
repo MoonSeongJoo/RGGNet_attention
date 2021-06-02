@@ -160,7 +160,7 @@ class BaseModel(object):
             # This must be executed before loss/optimizer defined
             self.define_loss()
             # Saving GPU memory
-            with tf.device("/cpu:0"):
+            with tf.device("/gpu:0"):
                 self.define_restore_graph_fns()
             self.define_optimizer()
             self.define_summary_list()

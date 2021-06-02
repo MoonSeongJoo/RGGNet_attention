@@ -8,6 +8,8 @@ from box import Box
 from src.pb_server import PBServer
 from env import Env
 
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+os.environ['CUDA_VISIBLE_DEVICES'] = "0"
 
 class Evaluator(object):
 
@@ -69,6 +71,7 @@ class Evaluator(object):
                         _profile_export = None
                     _y_hat_se3param = inference_server.inference(data=_inference_data, profile_export=_profile_export)
                     env.write_report(example=_given_training_obj[_id], pred=_y_hat_se3param)
+            print("----------------------------- _y_hat_se3param ---------------------------- : = " , _y_hat_se3param)
 
         if keep_data:
             return all_inference_data, all_training_obj
