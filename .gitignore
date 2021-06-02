@@ -3,7 +3,7 @@
 **/**.pb
 **/**.json
 **/__pycache__
-mnt/
-report/
-mnt/data/kitti/save/vae/1612142068.603815/eps_0_.data-00000-of-00001
-mnt/data/kitti/save/vae/1612150732.5277405/eps_0_.data-00000-of-00001
+.mnt/
+.report/
+#.mnt/data/kitti/save/vae/1612142068.603815/eps_0_.data-00000-of-00001
+#.mnt/data/kitti/save/vae/1612150732.5277405/eps_0_.data-00000-of-00001
