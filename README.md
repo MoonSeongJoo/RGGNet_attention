@@ -1,8 +1,8 @@
 # RGGNet
 
-Here's the official implementation of the Paper:  [Yuan, Kaiwen, Zhenyu Guo, and Z. Jane Wang. "RGGNet: Tolerance Aware LiDAR-Camera Online Calibration with Geometric Deep Learning and Generative Model." IEEE Robotics and Automation Letters (2020).](https://ieeexplore.ieee.org/abstract/document/9206138).
-
-![video_res_16_0070_r10_t02_rggnet_SHORT mov](https://user-images.githubusercontent.com/8921629/97133938-ce1b3980-1708-11eb-98df-58aac27a5625.gif)
+This is a branch implemented by synthesizing RGGNET_origin and the attention mechanism.
+Here, we try to improve the performance of the reggressor by synthesizing the CBAM attention mechanism with the original RGGNet code.
+The RGGNET_attention model and training code are in training\train_start_rggnet_attention.py.
 
 ## Hardware Requirements
 
@@ -138,6 +138,7 @@ It shall generate the following tfrecords for you:
 | alpha-RGGNet | make awesome-train-rggnet-novae |
 | RGGNet | make awesome-train-rggnet # You will need to modify the dir of the VAE pre-trained |
 | RGGNet-3dstn | make awesome-train-rggnet-3dstn |
+| RGGNet-Attention | make awesome-train-rggnet-attention |
 
 ## Run Testing
 
@@ -161,6 +162,9 @@ export CUDA_VISIBLE_DEVICES= && python -m training.apps.production process \
 --to_dir prod/rggnet \
 --to_name best
 ```
+
+
+
 
 Then you shall find a 232.6 MB frozen pb file in prod sub-folders. And congrats, you don't need to worry about the checkpoints any more!
 
@@ -188,6 +192,11 @@ export CUDA_VISIBLE_DEVICES= && python -m training.apps.evaluator process \
 --res_fp report
 ```
 
+```
+To buile RGGGNet_Attention:
+make build-rggnet-attention
+```
+
 ## Run Server
 
 Yeah yeah yeah. Til now, you have successfully done the evaluations and got some cold numbers... But that's not intuitive, at all!
@@ -196,6 +205,11 @@ I wanna see it! Then just do the following:
 
 ```
 cd server & make run-fs-mode-gpu-rggnet-plus 
+```
+
+regarding RGGNET_Attention:
+```
+cd server & make run-fs-mode-gpu-rggnet-attention
 ```
 
 And you shall see some visualization generated in the folder you configured. You can easily extend this to some web server or ROS node. Do it on your own.
@@ -229,7 +243,9 @@ The visualizations shall be shown in `/root/kitti/server/results`.
 
 Since all networks share the same forward graph, the profile shall be the same:
 
-On GTX 2080Ti, it runs 24ms.
+On GTX 3080Ti, it runs TBDms.
+(we will prepare training time)
+
 
 ![profile](assets/rggnet_profile.png)
 
